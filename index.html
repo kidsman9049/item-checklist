@@ -131,7 +131,8 @@
   ];
 
   //const form = document.getElementById('add-form');
-  let products = JSON.parse(localStorage.getItem('wh_static_products')) || defaultProducts;
+  // let products = JSON.parse(localStorage.getItem('wh_static_products')) || defaultProducts;
+  let products = JSON.parse(localStorage.getItem('wh_static_products') || defaultProducts);
   const arrivedList = document.getElementById('arrived-list');
   const pendingList = document.getElementById('pending-list');
 
