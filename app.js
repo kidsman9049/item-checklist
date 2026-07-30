@@ -53,6 +53,15 @@ const defaultProducts = [
     trackingNo: "",
     quantity: 2,
     arrived: false
+  },
+  {
+    id: 7,
+    name: "大尺寸防蚊门帘全磁条2026新款入户门高档强磁性家用免打孔纱窗门",
+    detail: "咖条纹【全磁条-金刚网】联系客服-换颜色;200cm;200cm",
+    image: "https://gw.alicdn.com/bao/uploaded/i3/2103634225/O1CN01tDJWs01h56VddTYAC_!!2103634225.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
   }
 ];
 
