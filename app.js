@@ -62,6 +62,15 @@ const defaultProducts = [
     trackingNo: "",
     quantity: 1,
     arrived: false
+  },
+  {
+    id: 8,
+    name: "威克士WU271锂电无刷风炮1000N.m大扭力铁路桥梁重型冲击电动扳手",
+    detail: "--无需赠品询单享优惠--",
+    image: "https://gsnapshot.alicdn.com/imgextra/imgextra/O1CN01yBgV0n1QfQTVu9Oii_!!2219647052003-0-picasso.jpg_640x640q85s150_.webp?time=1785281531000",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
   }
 ];
 
