@@ -53,69 +53,6 @@ const defaultProducts = [
     trackingNo: "UPS55667788",
     quantity: 2,
     arrived: false
-  },
-  {
-    id: 7,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
-  },
-  {
-    id: 8,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
-  },
-  {
-    id: 9,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
-  },
-  {
-    id: 10,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
-  },
-  {
-    id: 11,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
-  },
-  {
-    id: 12,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
-  },
-  {
-    id: 13,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
-    arrived: false
   }
 ];
 
