@@ -2,29 +2,29 @@
 const defaultProducts = [
   {
     id: 1,
-    name: "Logitech MX Master 3S 滑鼠",
-    detail: "黑色 / 靜音按鍵版 / 訂單號 #8841",
-    image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400",
-    trackingNo: "SF12345678",
-    quantity: 2,
+    name: "2026新款车载电动手机支架炫彩RGB高端无线充电仪表台导航支撑架",
+    detail: "【亮银色】无线充电◆电动锁紧◆炫彩氛围灯◆加倍稳固◆随取随放",
+    image: "https://gw.alicdn.com/bao/uploaded/i4/2219181800677/O1CN01DYAeZQ1Gs7Go5rlwG_!!2219181800677.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
     arrived: false
   },
   {
     id: 2,
-    name: "Keychron K2 機械鑰匙板",
-    detail: "茶軸 / RGB 背光 / 訂單號 #8842",
-    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
-    trackingNo: "DHL98765432",
+    name: "ANEX快速扳手AOA-19S2日本进口安力士多功能电动转换梅花套筒扳手",
+    detail: "AOA-19S2",
+    image: "https://gw.alicdn.com/bao/uploaded/i1/2215504660045/O1CN01L7RWSO1CCevuzHceB_!!2215504660045.jpg_.webp",
+    trackingNo: "",
     quantity: 1,
     arrived: false
   },
   {
     id: 3,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-    trackingNo: "UPS55667788",
-    quantity: 3,
+    name: "纯金属变形金刚车贴3D立体贴纸 汽车人标志车用装饰个性改装贴",
+    detail: "3D变形金刚金属贴★正派",
+    image: "https://gw.alicdn.com/bao/uploaded/i4/2057449637/O1CN01f4zpxN2L3nyPfTzQ9_!!2057449637.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
     arrived: false
   },
   {
