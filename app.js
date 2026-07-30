@@ -67,7 +67,7 @@ function render() {
   localStorage.setItem('products_data', JSON.stringify(products));
 }
 
-// 切換到倉狀態
+// 切換入篋狀態
 function toggleArrived(id) {
   products = products.map(p => {
     if (p.id === id) {
