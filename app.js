@@ -38,20 +38,20 @@ const defaultProducts = [
   },
   {
     id: 5,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
+    name: "磁吸金刚网纱窗网自装窗户防蚊家用自粘式隐形定制免打孔沙窗门帘",
+    detail: "70x120cm;【便捷小窗口+赠送专利安全锁扣】金刚网灰纱+灰框",
+    image: "https://gw.alicdn.com/bao/uploaded/i2/728381129/O1CN01xX9cqN1KD80Y4A6rC_!!728381129.jpg_.webp",
     trackingNo: "UPS55667788",
-    quantity: 3,
+    quantity: 2,
     arrived: false
   },
   {
     id: 6,
-    name: "Dell 27 吋 4K 顯示器",
-    detail: "U2723QE / USB-C Hub / 訂單號 #8810",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
+    name: "磁吸金刚网纱窗网自装窗户防蚊家用自粘式隐形定制免打孔沙窗门帘",
+    detail: "70x120cm;【2026新款】专利安全锁扣-金刚网灰纱+白框",
+    image: "https://gw.alicdn.com/bao/uploaded/i1/728381129/O1CN01P4Szqx1KD86IzIC7f_!!728381129.jpg_.webp",
     trackingNo: "UPS55667788",
-    quantity: 3,
+    quantity: 2,
     arrived: false
   },
   {
