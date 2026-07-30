@@ -79,7 +79,7 @@ function render() {
       <p class="product-detail">${product.detail}</p>
       <div class="meta-info">
         <span>📦 數量: ${product.quantity}</span>
-        // <span>🚚 追蹤號: ${product.trackingNo}</span>
+        <span>🚚 追蹤號: ${product.trackingNo}</span>
       </div>
     `;
 
