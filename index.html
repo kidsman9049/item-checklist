@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>倉庫到貨檢查系統</title>
+  <style>
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: #f4f6f8; margin: 0; padding: 20px; color: #333; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { text-align: center; color: #1e293b; }
+    
+    /* 新增表單區塊 */
+    .form-card {
+      background: #fff; padding: 20px; border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px;
+    }
+    .form-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .form-group input, .form-group textarea {
+      flex: 1; min-width: 200px; padding: 8px 12px;
+      border: 1px solid #ccc; border-radius: 4px;
+    }
+    .btn-add {
+      background: #2563eb; color: #fff; border: none;
+      padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;
+    }
+    .btn-add:hover { background: #1d4ed8; }
+
+    /* 板塊樣式 */
+    .section {
+      background: #fff; padding: 20px; border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px;
+    }
+    .section-title {
+      font-size: 1.2rem; margin-top: 0; padding-bottom: 10px;
+      border-bottom: 2px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;
+    }
+    .arrived-title { color: #166534; border-color: #bbf7d0; }
+    .pending-title { color: #9a3412; border-color: #fed7aa; }
+
+    /* 產品列表 */
+    .product-list { display: grid; gap: 15px; margin-top: 15px; }
+    .product-card {
+      display: flex; align-items: center; gap: 15px; background: #fafafa;
+      padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px;
+    }
+    .product-card input[type="checkbox"] { width: 22px; height: 22px; cursor: pointer; }
+    .product-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; background: #e2e8f0; }
+    .product-info { flex: 1; }
+    .product-title { font-weight: bold; font-size: 1.05rem; margin-bottom: 4px; }
+    .product-desc { font-size: 0.9rem; color: #64748b; margin-bottom: 4px; }
+    .product-meta { font-size: 0.8rem; color: #94a3b8; }
+    .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>📦 訂購產品到貨追蹤</h1>
+
+  <!-- 新增產品表單 -->
+  <div class="form-card">
+    <h3>新增訂單資料</h3>
+    <form id="add-form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="產品名稱 (必需)" required>
+        <input type="text" id="tracking" placeholder="追蹤號碼/訂單號">
+        <input type="url" id="image" placeholder="圖片網址 (URL)">
+      </div>
+      <div class="form-group">
+        <textarea id="details" rows="2" placeholder="產品詳情 / 備註..."></textarea>
+      </div>
+      <button type="submit" class="btn-add">新增產品</button>
+    </form>
+  </div>
+
+  <!-- 上半部份：已到倉 -->
+  <div class="section">
+    <h2 class="section-title arrived-title">
+      ✅ 上半部份：已到倉 
+      <span id="arrived-count" style="font-size: 0.9rem;">(0)</span>
+    </h2>
+    <div id="arrived-list" class="product-list"></div>
+  </div>
+
+  <!-- 下半部份：未到倉 -->
+  <div class="section">
+    <h2 class="section-title pending-title">
+      ⏳ 下半部份：未到倉 
+      <span id="pending-count" style="font-size: 0.9rem;">(0)</span>
+    </h2>
+    <div id="pending-list" class="product-list"></div>
+  </div>
+</div>
+
+<script>
+  let products = JSON.parse(localStorage.getItem('wh_products')) || [];
+
+  const form = document.getElementById('add-form');
+  const arrivedList = document.getElementById('arrived-list');
+  const pendingList = document.getElementById('pending-list');
+
+  // 新增產品
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newProduct = {
+      id: Date.now(),
+      name: document.getElementById('name').value,
+      tracking: document.getElementById('tracking').value,
+      image: document.getElementById('image').value || 'https://via.placeholder.com/60?text=No+Img',
+      details: document.getElementById('details').value,
+      arrived: false
+    };
+    products.push(newProduct);
+    saveAndRender();
+    form.reset();
+  });
+
+  // 切換到貨狀態
+  function toggleStatus(id) {
+    products = products.map(p => p.id === id ? { ...p, arrived: !p.arrived } : p);
+    saveAndRender();
+  }
+
+  // 刪除產品
+  function deleteProduct(id) {
+    products = products.filter(p => p.id !== id);
+    saveAndRender();
+  }
+
+  // 儲存並渲染
+  function saveAndRender() {
+    localStorage.setItem('wh_products', JSON.stringify(products));
+    
+    arrivedList.innerHTML = '';
+    pendingList.innerHTML = '';
+
+    let arrivedCount = 0;
+    let pendingCount = 0;
+
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <input type="checkbox" ${p.arrived ? 'checked' : ''} onchange="toggleStatus(${p.id})">
+        <img src="${p.image}" class="product-img" onerror="this.src='https://via.placeholder.com/60?text=Error'">
+        <div class="product-info">
+          <div class="product-title">${escapeHtml(p.name)}</div>
+          <div class="product-desc">${escapeHtml(p.details)}</div>
+          <div class="product-meta">${p.tracking ? '單號: ' + escapeHtml(p.tracking) : ''}</div>
+        </div>
+        <button class="btn-delete" onclick="deleteProduct(${p.id})">刪除</button>
+      `;
+
+      if (p.arrived) {
+        arrivedList.appendChild(card);
+        arrivedCount++;
+      } else {
+        pendingList.appendChild(card);
+        pendingCount++;
+      }
+    });
+
+    document.getElementById('arrived-count').innerText = `(${arrivedCount})`;
+    document.getElementById('pending-count').innerText = `(${pendingCount})`;
+  }
+
+  function escapeHtml(text) {
+    return text ? text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : '';
+  }
+
+  // 初始化載入
+  saveAndRender();
+</script>
+
+</body>
+</html>
