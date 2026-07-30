@@ -24,7 +24,7 @@ const defaultProducts = [
     detail: "3D变形金刚金属贴★正派",
     image: "https://gw.alicdn.com/bao/uploaded/i4/2057449637/O1CN01f4zpxN2L3nyPfTzQ9_!!2057449637.jpg_.webp",
     trackingNo: "",
-    quantity: 1,
+    quantity: 2,
     arrived: false
   },
   {
