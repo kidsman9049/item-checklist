@@ -8,9 +8,11 @@
     * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
     body { background-color: #f4f6f8; margin: 0; padding: 20px; color: #333; }
     .container { max-width: 900px; margin: 0 auto; }
+    h1 { text-align: center; color: #1e293b; margin-bottom: 25px; }
+    /*
     h1 { text-align: center; color: #1e293b; }
     
-    /* 新增表單區塊 */
+    // 新增表單區塊
     .form-card {
       background: #fff; padding: 20px; border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px;
@@ -25,6 +27,7 @@
       padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;
     }
     .btn-add:hover { background: #1d4ed8; }
+    */
 
     /* 板塊樣式 */
     .section {
@@ -43,14 +46,16 @@
     .product-card {
       display: flex; align-items: center; gap: 15px; background: #fafafa;
       padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px;
+      transition: background-color 0.2s ease;
     }
+    .product-card:hover { background: #f1f5f9; }
     .product-card input[type="checkbox"] { width: 22px; height: 22px; cursor: pointer; }
     .product-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; background: #e2e8f0; }
     .product-info { flex: 1; }
     .product-title { font-weight: bold; font-size: 1.05rem; margin-bottom: 4px; }
     .product-desc { font-size: 0.9rem; color: #64748b; margin-bottom: 4px; }
     .product-meta { font-size: 0.8rem; color: #94a3b8; }
-    .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+    // .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -59,6 +64,7 @@
   <h1>📦 訂購產品到貨追蹤</h1>
 
   <!-- 新增產品表單 -->
+  /*
   <div class="form-card">
     <h3>新增訂單資料</h3>
     <form id="add-form">
@@ -73,6 +79,7 @@
       <button type="submit" class="btn-add">新增產品</button>
     </form>
   </div>
+  */
 
   <!-- 上半部份：已到倉 -->
   <div class="section">
@@ -87,6 +94,7 @@
   <div class="section">
     <h2 class="section-title pending-title">
       ⏳ 下半部份：未到倉 
+      <span id="arrived-count" style="font-size: 0.9rem;"></span>
       <span id="pending-count" style="font-size: 0.9rem;">(0)</span>
     </h2>
     <div id="pending-list" class="product-list"></div>
@@ -94,13 +102,41 @@
 </div>
 
 <script>
-  let products = JSON.parse(localStorage.getItem('wh_products')) || [];
+  //let products = JSON.parse(localStorage.getItem('wh_products')) || [];
+  const defaultProducts = [
+    {
+      id: 1,
+      name: "無線藍芽耳機 A1",
+      tracking: "SF123456789",
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&q=80",
+      details: "黑色 / 數量：50件 / 附充電盒",
+      arrived: false
+    },
+    {
+      id: 2,
+      name: "人體工學辦公椅",
+      tracking: "DHL987654321",
+      image: "https://images.unsplash.com/photo-1580481072645-022f9a6d1270?w=100&q=80",
+      details: "灰色網椅 / 數量：2件",
+      arrived: false
+    },
+    {
+      id: 3,
+      name: "機械鍵盤 Keychron K2",
+      tracking: "EMS555666777",
+      image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=100&q=80",
+      details: "茶軸 / 英文鍵帽 / 數量：10件",
+      arrived: true // true 表示預設就在已到倉
+    }
+  ];
 
-  const form = document.getElementById('add-form');
+  //const form = document.getElementById('add-form');
+  let products = JSON.parse(localStorage.getItem('wh_static_products')) || defaultProducts;
   const arrivedList = document.getElementById('arrived-list');
   const pendingList = document.getElementById('pending-list');
 
   // 新增產品
+  /*
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const newProduct = {
@@ -115,20 +151,27 @@
     saveAndRender();
     form.reset();
   });
+  */
 
   // 切換到貨狀態
   function toggleStatus(id) {
     products = products.map(p => p.id === id ? { ...p, arrived: !p.arrived } : p);
-    saveAndRender();
+    // saveAndRender();
+    // 暫存勾選狀態至瀏覽器，讓使用者重新整理頁面時勾選不會消失
+    localStorage.setItem('wh_static_products', JSON.stringify(products));
+    render();
   }
 
   // 刪除產品
+  /*
   function deleteProduct(id) {
     products = products.filter(p => p.id !== id);
     saveAndRender();
   }
+  */
 
   // 儲存並渲染
+  /*
   function saveAndRender() {
     localStorage.setItem('wh_products', JSON.stringify(products));
     
@@ -149,7 +192,42 @@
           <div class="product-desc">${escapeHtml(p.details)}</div>
           <div class="product-meta">${p.tracking ? '單號: ' + escapeHtml(p.tracking) : ''}</div>
         </div>
-        <button class="btn-delete" onclick="deleteProduct(${p.id})">刪除</button>
+        // <button class="btn-delete" onclick="deleteProduct(${p.id})">刪除</button>
+      `;
+
+      if (p.arrived) {
+        arrivedList.appendChild(card);
+        arrivedCount++;
+      } else {
+        pendingList.appendChild(card);
+        pendingCount++;
+      }
+    });
+
+    document.getElementById('arrived-count').innerText = `(${arrivedCount})`;
+    document.getElementById('pending-count').innerText = `(${pendingCount})`;
+  }
+  */
+
+  // 畫面渲染
+  function render() {
+    arrivedList.innerHTML = '';
+    pendingList.innerHTML = '';
+
+    let arrivedCount = 0;
+    let pendingCount = 0;
+
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <input type="checkbox" ${p.arrived ? 'checked' : ''} onchange="toggleStatus(${p.id})">
+        <img src="${p.image}" class="product-img" onerror="this.src='https://via.placeholder.com/60?text=No+Img'">
+        <div class="product-info">
+          <div class="product-title">${escapeHtml(p.name)}</div>
+          <div class="product-desc">${escapeHtml(p.details)}</div>
+          <div class="product-meta">${p.tracking ? '單號: ' + escapeHtml(p.tracking) : ''}</div>
+        </div>
       `;
 
       if (p.arrived) {
