@@ -134,6 +134,123 @@ const defaultProducts = [
     trackingNo: "",
     quantity: 1,
     arrived: false
+  },
+  {
+    id: 16,
+    name: "车载手机支架2026新款汽车中控仪表台真空吸附吸盘式导航固定专用",
+    detail: "创新升级 | 强劲吸附【镜面款】",
+    image: "https://gw.alicdn.com/bao/uploaded/i2/2206421657870/O1CN019ge7OK280W9ZUulyA_!!2206421657870.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 17,
+    name: "3G模型 DSPIAE/迪斯派 ES-P 迷你便携电动三档变速打磨棒打磨器",
+    detail: "便携式电动打磨笔",
+    image: "https://gw.alicdn.com/bao/uploaded/i4/20347155/O1CN01VUx6f122j2Xt3a4Hx_!!20347155.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 18,
+    name: "贝肽斯儿童水龙头延伸器宝宝洗手加长延长硅胶可爱通用防溅水神器",
+    detail: "鸭叽米-常规款【99%适配】",
+    image: "https://gw.alicdn.com/bao/uploaded/i1/2258845085/O1CN01lBKwym1nQz5tIKrxg_!!2258845085.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 19,
+    name: "下水道异物夹取器管道疏通神器厕所马桶加长夹子取物专用工具抓夹",
+    detail: "升级加粗不锈钢【0.6米】强力四爪疏通器【牛油果绿】",
+    image: "https://gw.alicdn.com/bao/uploaded/i1/2216216798592/O1CN01y31qpM2DLC7ED9mSM_!!2216216798592.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 20,
+    name: "MAGICIAN魔术师OBD多功能仪表F835Plus机油水气温涡轮转速车改装",
+    detail: "F8PLUS繁体中文（带吸盘）",
+    image: "https://gw.alicdn.com/bao/uploaded/i1/62128759/O1CN01qV9Itf2EZg4g58lsf_!!62128759.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 21,
+    name: "万车宝AiPRO汽车故障检测仪obd汽车检测仪汽手机版汽车故障检测仪",
+    detail: "【70%用户选择】重磅新品AiPRO【Ai智能全面接入+全车360°体检+近20项特殊功能】",
+    image: "https://gw.alicdn.com/bao/uploaded/i2/2215852074388/O1CN01Q4O6K71iHl3l6xd4b_!!2215852074388.png_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 22,
+    name: "跨境新款汽车雨伞挂钩轿车SUV后备箱通用鱼竿置物多功能固定架",
+    detail: "白色【双钩】2个",
+    image: "https://gw.alicdn.com/bao/uploaded/i2/2208108764806/O1CN01VvsjP51lNCaUWS04i_!!2208108764806.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 23,
+    name: "蓝牙耳机Ai智能对话翻译实时同声传译耳夹政府补贴2026新款kinyo",
+    detail: "官方标配[丨无耳饰●【免费会员】];Ultra白【首款画中画+离线免费翻译+八大AI模型】千元级专利喇叭★舒适佩戴新标杆",
+    image: "https://gw.alicdn.com/bao/uploaded/i1/2218227615274/O1CN01Qlgqei1opXzpYRLJA_!!2218227615274.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 24,
+    name: "丰田汽车座椅缝隙塞条夹缝防漏防掉储物车载好物内饰用品收纳盒袋",
+    detail: "【丰田车标】黑色主副一对装",
+    image: "https://gw.alicdn.com/bao/uploaded/i4/3424375613/O1CN01YWlBPK1rKo6RrxI8f_!!3424375613.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 25,
+    name: "日式漩涡地漏浴室下水道盖头发收集器卫生间旋转防虫防堵过滤网",
+    detail: "白色2个装【不塞头发✅排水迅速】",
+    image: "https://gw.alicdn.com/bao/uploaded/i4/2211914593969/O1CN01DSThsp1fBr61nvADu_!!2211914593969.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 26,
+    name: "通用水龙头延长器延伸节水起泡器出水嘴喷头固定型加长水管防溅水",
+    detail: "【白色30CM】 水龙头延长管[铜接头]",
+    image: "https://gw.alicdn.com/bao/uploaded/i2/2212785106285/O1CN01qDsPWf1wIZzqOUND6_!!2212785106285.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 27,
+    name: "内窥镜360度旋转内窥镜汽车维修高清摄像可视汽车缸内转弯内规镜",
+    detail: "6mm实惠款苹果/安卓直连/360转向/柴汽通用",
+    image: "https://gw.alicdn.com/bao/uploaded/i2/2213239098635/O1CN018XKzyn2Det4ntoTVH_!!2213239098635.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
+  },
+  {
+    id: 28,
+    name: "纯钛茶杯",
+    detail: "茶杯",
+    image: "https://gw.alicdn.com/imgextra/O1CN01ja1uMp1LheJmTbidm_!!2835571331-0-picasso.jpg_.webp",
+    trackingNo: "",
+    quantity: 1,
+    arrived: false
   }
 ];
 
